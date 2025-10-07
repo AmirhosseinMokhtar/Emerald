@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartGame : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     public string gameSceneName;
 
@@ -14,5 +14,10 @@ public class StartGame : MonoBehaviour
             Debug.Log("Space Pressed");
         }
                 //SceneManager.LoadScene(gameSceneName);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
