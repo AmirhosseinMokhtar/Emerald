@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // you can modify this value if it's necessary.
-    public static int health = 3;
+    public int health = 3;
 
     private AudioSource audioSource;
     private Animator animator;
@@ -18,25 +18,33 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 moveVector;
 
     private bool isJumped;
-    private bool isAttacked;
-    private bool isShielded;
+    public bool isAttacked;
+    public bool isShielded;
     private bool previousShielded;
 
     // pay attention, you have to fill out these fields from inspector with approprite values.
     [SerializeField] private AudioClip jumpClip;
     [SerializeField] private AudioClip attackClip;
     [SerializeField] private AudioClip shieldClip;
+    [SerializeField] private AudioClip DieClip;
     [SerializeField] private float volumeSound;
+
+    // the menu that appears when player is game over
+    public GameObject endMenu;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+        if (endMenu != null)
+            endMenu.SetActive(false);
     }
 
     void Update()
     {
         HandleInputs();
+        HandleDie();
 
         if (isJumped)
         {
@@ -108,5 +116,16 @@ public class PlayerController : MonoBehaviour
     void HandleMovement()
     {
         rb.AddForce(moveVector, ForceMode2D.Impulse);
+    }
+
+    void HandleDie()
+    {
+        if(health == 0)
+        {
+            HandleAudios(DieClip, volumeSound);
+            if (endMenu != null)
+                endMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 }
