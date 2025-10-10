@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Emerald/Assets/scripts/PlayerController.cs.meta
 guid: a341fa759b3e8bc4b84238746496faa1
+=======
+guid: 069367437fee7c44ab80decf0f5a17f0
+>>>>>>> Stashed changes:Emerald/Assets/Scripts/PlayerController.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

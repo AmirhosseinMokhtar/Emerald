@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Emerald/Assets/scripts/Enemy.cs.meta
 guid: 79157dbcc5c1007438ca41572a4edc46
+=======
+guid: 294117dd2da4a5c4a849b2a73c78b562
+>>>>>>> Stashed changes:Emerald/Assets/Scripts/Enemy.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
